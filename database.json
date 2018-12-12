@@ -1,0 +1,108 @@
+{
+  "programs": [
+    {
+      "description": "Visit other campuses to spread out the DSC networking and make sure that all campuses get the latest knowledge in the community.",
+      "icon": "e1a-school",
+      "id": "campus-roadshow",
+      "link": "https://bit.ly/dscpens-program-campusroadshow",
+      "name": "Campus Roadshow"
+    },
+    {
+      "description": "Build a team with other members who are ready or interested to build their first app together and solve problems with it.",
+      "icon": "e1a-man_technologist_tone1",
+      "id": "developer-in-action",
+      "link": "https://bit.ly/dscpens-program-devinaction",
+      "name": "Developer In Action",
+      "teams": [
+        "bimbelbee",
+        "delpy",
+        "gemboz",
+        "makaji",
+        "pick-me",
+        "shocity",
+        "sinchan-viral",
+        "viseaon"
+      ]
+    },
+    {
+      "description": "This program provides mentorship support and guidance from to all members who wants to build their own startup.",
+      "icon": "e1a-rocket",
+      "id": "startup-initiator",
+      "link": "https://bit.ly/dscpens-program-startupinitiator",
+      "name": "Startup Initiator",
+      "teams": [
+        "cekbeng-id",
+        "gosensi",
+        "grinsmile",
+        "hydok",
+        "orzie",
+        "saley-manager"
+      ]
+    },
+    {
+      "description": "Learn, develop, and collaborate together about the latest topics and technologies once per week.",
+      "icon": "e1a-man_teacher_tone1",
+      "id": "weekly-workshop",
+      "link": "https://bit.ly/dscpens-register",
+      "name": "Weekly Workshop"
+    }
+  ],
+  "teams": [
+    {
+      "id": "bimbelbee",
+      "name": "Bimbelbee"
+    },
+    {
+      "id": "cekbeng-id",
+      "name": "CEKBENG.ID"
+    },
+    {
+      "id": "delpy",
+      "name": "Delpy"
+    },
+    {
+      "id": "gemboz",
+      "name": "Gemboz"
+    },
+    {
+      "id": "gosensi",
+      "name": "Gosensi"
+    },
+    {
+      "id": "grinsmile",
+      "name": "GRINSMILE"
+    },
+    {
+      "id": "hydok",
+      "name": "Hydok"
+    },
+    {
+      "id": "makaji",
+      "name": "MAKAJI"
+    },
+    {
+      "id": "orzie",
+      "name": "ORZIE"
+    },
+    {
+      "id": "pick-me",
+      "name": "Pick Me"
+    },
+    {
+      "id": "saley-manager",
+      "name": "Saley Manager"
+    },
+    {
+      "id": "shocity",
+      "name": "Shocity"
+    },
+    {
+      "id": "sinchan-viral",
+      "name": "Sinchan Viral"
+    },
+    {
+      "id": "viseaon",
+      "name": "VISEAON"
+    }
+  ]
+}

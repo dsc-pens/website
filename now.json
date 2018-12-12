@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "alias": "dsc-pens.now.sh",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "env": {
+    "API_KEY": "@frbs-api-key",
+    "AUTH_DOMAIN": "dsc-pens.now.sh",
+    "GITHUB_TOKEN": "@gh-token",
+    "MSG_SENDER_ID": "@frbs-msg-id"
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  }
+}

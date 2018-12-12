@@ -1,0 +1,57 @@
+$primary: #4887f4;
+
+@import '~bulma';
+@import './emojione';
+
+:root {
+  --color-orange: #{$orange};
+  --color-yellow: #{$yellow};
+  --color-green: #{$green};
+  --color-turquoise: #{$turquoise};
+  --color-cyan: #{$cyan};
+  --color-blue: #{$blue};
+  --color-purple: #{$purple};
+  --color-red: #{$red};
+}
+
+* {
+  transition: all 200ms ease;
+}
+
+$viewports: (
+  tablet: $tablet,
+  desktop: $desktop,
+  widescreen: $widescreen,
+  fullhd: $fullhd,
+);
+
+@each $name, $viewport in $viewports {
+  .dsc-max-#{$name} {
+    margin: 0 auto;
+    max-width: #{$viewport};
+  }
+}
+
+.dsc-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.dsc-container-children {
+  flex-grow: 1;
+}
+
+.dsc-navbar-height {
+  height: #{$navbar-height};
+}
+
+.dsc-navbar-container {
+  @extend .hero, .is-primary;
+
+  height: #{$navbar-height};
+}
+.dsc-navbar {
+  @extend .navbar, .has-background-primary, .is-fixed-top;
+
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
