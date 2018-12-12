@@ -1,6 +1,6 @@
 .cache
 .DS_Store
-.env.development
-.env.production
+.env.*
+.firebase
 dist
 node_modules
