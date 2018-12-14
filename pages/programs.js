@@ -3,20 +3,24 @@ import React from 'react'
 
 import Link from '../components/ExternalLink'
 import Loading from '../components/Loading'
-import PageLayout from '../layouts/PageLayout'
+import Layout from '../layouts/Layout'
 import { fetchRef } from '../lib/Operations'
-import SS from '../lib/SessionStorage'
 
 export default class extends React.Component {
   state = {
-    /** @type {Array} */
-    programs: SS.get('landing:programs') || [],
+    programs: [],
   }
 
   componentDidMount() {
+    const SS = sessionStorage || window.sessionStorage
+
+    this.setState({
+      programs: JSON.parse(SS.getItem('landing:programs')) || [],
+    })
+
     if (this.state.programs <= 0)
       fetchRef('programs').then(value => {
-        SS.set('landing:programs', value)
+        SS.setItem('landing:programs', JSON.stringify(value))
         this.setState({ programs: value })
       })
   }
@@ -47,7 +51,7 @@ export default class extends React.Component {
       )
 
     return (
-      <PageLayout pageTitle='Programs'>
+      <Layout title='Programs'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -74,7 +78,7 @@ export default class extends React.Component {
             justify-content: center;
           }
         `}</style>
-      </PageLayout>
+      </Layout>
     )
   }
 }

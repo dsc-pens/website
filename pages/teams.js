@@ -1,27 +1,31 @@
 import cns from '@sindresorhus/class-names'
-import { Link } from 'gatsby'
+import Link from 'next/link'
 import React from 'react'
 
 import Loading from '../components/Loading'
-import PageLayout from '../layouts/PageLayout'
+import Layout from '../layouts/Layout'
 import { fetchRef } from '../lib/Operations'
-import SS from '../lib/SessionStorage'
 
 export default class extends React.Component {
   state = {
-    /** @type {Array} */
-    programs: SS.get('landing:programs') || [],
-    /** @type {Array} */
-    teams: SS.get('landing:teams') || [],
+    programs: [],
+    teams: [],
   }
 
   componentDidMount() {
+    const SS = sessionStorage || window.sessionStorage
+
+    this.setState({
+      programs: JSON.parse(SS.getItem('landing:programs')) || [],
+      teams: JSON.parse(SS.getItem('landing:teams')) || [],
+    })
+
     const { programs, teams } = this.state
 
     if ([programs, teams].some(a => a.length <= 0)) {
       ;['programs', 'teams'].forEach(ref =>
         fetchRef(ref).then(value => {
-          SS.set(`landing:${ref}`, value)
+          SS.setItem(`landing:${ref}`, JSON.stringify(value))
           this.setState({ [ref]: value })
         })
       )
@@ -54,7 +58,7 @@ export default class extends React.Component {
       )
 
     return (
-      <PageLayout pageTitle='Teams'>
+      <Layout title='Teams'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -72,8 +76,8 @@ export default class extends React.Component {
               <List />
             </div>
             <br />
-            <Link to='/gallery' className='button is-primary'>
-              View in Gallery
+            <Link href='/gallery'>
+              <a className='button is-primary'>View in Gallery</a>
             </Link>
           </div>
         </section>
@@ -84,7 +88,7 @@ export default class extends React.Component {
             justify-content: center;
           }
         `}</style>
-      </PageLayout>
+      </Layout>
     )
   }
 }

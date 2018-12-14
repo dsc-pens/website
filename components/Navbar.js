@@ -1,5 +1,5 @@
 import cns from '@sindresorhus/class-names'
-import { Link } from 'gatsby'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 import JoinButton from './JoinButton'
@@ -42,11 +42,12 @@ export default () => {
     <div className='dsc-navbar-container'>
       <nav className='dsc-navbar has-text-centered'>
         <div className='navbar-brand'>
-          <Link to='/' className='navbar-item'>
-            <strong>DSC PENS</strong> &nbsp;&nbsp; Developer Student Club
+          <Link href='/'>
+            <a className='navbar-item'>
+              <strong>DSC PENS</strong> &nbsp;&nbsp; Developer Student Club
+            </a>
           </Link>
 
-          {/* eslint-disable */}
           <a
             className={cns(...burgerCns, { 'is-active': navbarState })}
             onClick={() => toggleState()}
@@ -60,13 +61,10 @@ export default () => {
         <div className={cns('navbar-menu', { 'is-active': navbarState })}>
           <div className='navbar-end' onClick={() => setNavbarState(false)}>
             {routes.map(({ content, icon, to }) => (
-              <Link
-                key={content}
-                to={to}
-                className='navbar-item'
-                activeClassName='is-active'
-              >
-                <i className={icon} /> &nbsp; {content}
+              <Link href={to} key={content}>
+                <a className='navbar-item'>
+                  <i className={icon} /> &nbsp; {content}
+                </a>
               </Link>
             ))}
             <div className='navbar-item'>

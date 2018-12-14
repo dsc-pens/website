@@ -3,30 +3,36 @@ import Image from 'react-medium-image-zoom'
 import Select from 'react-select'
 
 import Loading from '../components/Loading'
-import PageLayout from '../layouts/PageLayout'
+import Layout from '../layouts/Layout'
 import { fetchGalleryImages, fetchRef } from '../lib/Operations'
-import SS from '../lib/SessionStorage'
 
 export default class extends React.Component {
   state = {
     filter: null,
     lbActive: false,
-    /** @type {Array} */
-    images: SS.get('landing:images') || [],
-    /** @type {Array} */
-    programs: SS.get('landing:programs') || [],
-    /** @type {Array} */
-    teams: SS.get('landing:teams') || [],
+    images: [],
+    programs: [],
+    teams: [],
   }
 
   componentDidMount() {
+    const SS = sessionStorage || window.sessionStorage
+
+    this.setState({
+      ...['images', 'programs', 'teams'].map(ref => {
+        return {
+          [ref]: JSON.parse(SS.getItem(`landing:${ref}`)) || [],
+        }
+      }),
+    })
+
     const { images, programs, teams } = this.state
 
     if ([images, programs, teams].some(a => a.length <= 0))
       Promise.all(
         ['programs', 'teams'].map(ref =>
           fetchRef(ref).then(value => {
-            SS.set(`landing:${ref}`, value)
+            SS.setItem(`landing:${ref}`, JSON.stringify(value))
             this.setState({ [ref]: value })
             return
           })
@@ -56,7 +62,7 @@ export default class extends React.Component {
               if (a.name > b.name) return 1
               return 0
             })
-          SS.set(`landing:images`, images)
+          SS.setItem('landing:images', JSON.stringify(images))
           this.setState({ images })
         })
   }
@@ -70,13 +76,15 @@ export default class extends React.Component {
     const isFetched = [images, programs, teams].every(a => a.length > 0)
 
     /** @type {String[]} */
-    const allSortedTeams = programs
-      .filter(({ id, teams }) =>
-        filter && filter.value !== '' && teams ? id === filter.value : true
-      )
-      .map(p => p.teams)
-      .flat()
-      .sort()
+    const allSortedTeams =
+      programs.length > 0 &&
+      programs
+        .filter(({ id, teams }) =>
+          filter && filter.value !== '' && teams ? id === filter.value : true
+        )
+        .map(p => p.teams)
+        .flat()
+        .sort()
 
     const List = () =>
       isFetched ? (
@@ -136,7 +144,7 @@ export default class extends React.Component {
       )
 
     return (
-      <PageLayout pageTitle='Gallery'>
+      <Layout title='Gallery'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -162,7 +170,7 @@ export default class extends React.Component {
             justify-content: center;
           }
         `}</style>
-      </PageLayout>
+      </Layout>
     )
   }
 }

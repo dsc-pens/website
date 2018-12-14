@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 /** @param {React.Props} props */
@@ -6,5 +7,9 @@ const ExternalLink = props => (
     {props.children}
   </a>
 )
+
+ExternalLink.propTypes = {
+  href: PropTypes.string,
+}
 
 export default ExternalLink

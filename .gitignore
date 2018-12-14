@@ -1,6 +1,6 @@
-.cache
-.env.development
-.env.production
-node_modules
-public
+.env
+.next
+.DS_Store
 **/.*.json
+node_modules
+out
