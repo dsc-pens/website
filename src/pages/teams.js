@@ -1,9 +1,9 @@
 import cns from '@sindresorhus/class-names'
+import { Link } from 'gatsby'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import Loading from '../components/Loading'
-import Layout from '../layouts/Layout'
+import PageLayout from '../layouts/PageLayout'
 import { fetchRef } from '../lib/Operations'
 import SS from '../lib/SessionStorage'
 
@@ -54,7 +54,7 @@ export default class extends React.Component {
       )
 
     return (
-      <Layout pageTitle='Teams'>
+      <PageLayout pageTitle='Teams'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -84,7 +84,7 @@ export default class extends React.Component {
             justify-content: center;
           }
         `}</style>
-      </Layout>
+      </PageLayout>
     )
   }
 }

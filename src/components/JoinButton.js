@@ -1,13 +1,38 @@
+import cns from '@sindresorhus/class-names'
+import { graphql, StaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-import ExtLink from '../components/ExternalLink'
-import { getLink } from '../metadata/links'
+import Link from '../components/ExternalLink'
 
-export default ({ className }) => (
-  <ExtLink
-    href={getLink('join-refferal')}
-    className={`button is-success ${className}`}
-  >
-    <i className='e1a-rocket' /> &nbsp; Join now
-  </ExtLink>
+const query = graphql`
+  {
+    joinRef: linksJson(id: { eq: "join-refferal" }) {
+      url
+    }
+  }
+`
+
+const JoinButton = ({ className }) => (
+  <StaticQuery
+    query={query}
+    render={({ joinRef }) => (
+      <Link
+        href={joinRef.url}
+        className={cns('button', 'is-success', className)}
+      >
+        <i className='e1a-rocket' /> &nbsp; Join now
+      </Link>
+    )}
+  />
 )
+
+JoinButton.propTypes = {
+  className: PropTypes.string,
+}
+
+JoinButton.defaultProps = {
+  className: null,
+}
+
+export default JoinButton

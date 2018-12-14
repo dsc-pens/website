@@ -3,7 +3,7 @@ import Image from 'react-medium-image-zoom'
 import Select from 'react-select'
 
 import Loading from '../components/Loading'
-import Layout from '../layouts/Layout'
+import PageLayout from '../layouts/PageLayout'
 import { fetchGalleryImages, fetchRef } from '../lib/Operations'
 import SS from '../lib/SessionStorage'
 
@@ -114,7 +114,7 @@ export default class extends React.Component {
                 </React.Fragment>
               )
             )
-          }
+          } else return null
         })
       ) : (
         <Loading />
@@ -136,7 +136,7 @@ export default class extends React.Component {
       )
 
     return (
-      <Layout pageTitle='Gallery'>
+      <PageLayout pageTitle='Gallery'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -162,7 +162,7 @@ export default class extends React.Component {
             justify-content: center;
           }
         `}</style>
-      </Layout>
+      </PageLayout>
     )
   }
 }

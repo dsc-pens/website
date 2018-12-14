@@ -1,9 +1,9 @@
-import classNames from '@sindresorhus/class-names'
+import cns from '@sindresorhus/class-names'
 import React from 'react'
 
-import ExtLink from '../components/ExternalLink'
+import Link from '../components/ExternalLink'
 import Loading from '../components/Loading'
-import Layout from '../layouts/Layout'
+import PageLayout from '../layouts/PageLayout'
 import { fetchRef } from '../lib/Operations'
 import SS from '../lib/SessionStorage'
 
@@ -29,14 +29,14 @@ export default class extends React.Component {
         programs.map(p => (
           <div className='column is-half' key={p.id}>
             <div className='box'>
-              <i className={classNames('e1a-lg', p.icon)} />
+              <i className={cns('e1a-lg', p.icon)} />
               <h4 className='title is-4'>{p.name}</h4>
               <p>{p.description}</p>
               <br />
               <p>
-                <ExtLink href={p.link} className='button is-primary'>
+                <Link href={p.link} className='button is-primary'>
                   Join this program
-                </ExtLink>
+                </Link>
               </p>
               <br />
             </div>
@@ -47,7 +47,7 @@ export default class extends React.Component {
       )
 
     return (
-      <Layout pageTitle='Programs'>
+      <PageLayout pageTitle='Programs'>
         <section className='section'>
           <div className='container'>
             <div className='has-text-centered'>
@@ -58,6 +58,7 @@ export default class extends React.Component {
             </div>
           </div>
         </section>
+
         <section className='section'>
           <div className='container'>
             <div className='columns has-text-centered'>
@@ -66,13 +67,14 @@ export default class extends React.Component {
             </div>
           </div>
         </section>
+
         <style jsx>{`
           .columns {
             flex-wrap: wrap;
             justify-content: center;
           }
         `}</style>
-      </Layout>
+      </PageLayout>
     )
   }
 }

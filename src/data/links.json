@@ -1,0 +1,30 @@
+[
+  {
+    "id": "dsc-gh",
+    "url": "https://github.com/dsc-pens"
+  },
+  {
+    "id": "firebase",
+    "url": "https://firebase.google.com"
+  },
+  {
+    "id": "flutter",
+    "url": "https://flutter.io"
+  },
+  {
+    "id": "join-refferal",
+    "url": "https://bit.ly/dscpens-register"
+  },
+  {
+    "id": "kotlin",
+    "url": "https://kotlinlang.org"
+  },
+  {
+    "id": "pwa",
+    "url": "https://developers.google.com/web/progressive-web-apps"
+  },
+  {
+    "id": "unity-ar-vr",
+    "url": "https://unity3d.com/unity/features/multiplatform/vr-ar"
+  }
+]

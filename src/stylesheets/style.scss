@@ -14,10 +14,6 @@ $primary: #4887f4;
   --color-red: #{$red};
 }
 
-* {
-  transition: all 200ms ease;
-}
-
 $viewports: (
   tablet: $tablet,
   desktop: $desktop,
