@@ -1,7 +1,7 @@
 import cns from '@sindresorhus/class-names'
 import Link from 'next/link'
 import React, { useState } from 'react'
-
+import CheckApp from '../components/CheckApp'
 import JoinButton from './JoinButton'
 
 const routes = [
@@ -68,7 +68,8 @@ export default () => {
               </Link>
             ))}
             <div className='navbar-item'>
-              <JoinButton className='is-fullwidth' />
+              <JoinButton className='is-fullwidth' />&nbsp;
+              <CheckApp className='is-fullwidth'/>
             </div>
           </div>
         </div>
