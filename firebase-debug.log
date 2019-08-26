@@ -1,0 +1,38 @@
+[debug] [2019-08-26T05:03:26.975Z] ----------------------------------------------------------------------
+[debug] [2019-08-26T05:03:26.979Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-08-26T05:03:26.979Z] CLI Version:   7.2.4
+[debug] [2019-08-26T05:03:26.979Z] Platform:      linux
+[debug] [2019-08-26T05:03:26.979Z] Node Version:  v10.16.0
+[debug] [2019-08-26T05:03:26.980Z] Time:          Mon Aug 26 2019 12:03:26 GMT+0700 (Western Indonesia Time)
+[debug] [2019-08-26T05:03:26.980Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-26T05:03:26.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-26T05:03:26.990Z] > authorizing via signed-in user
+[debug] [2019-08-26T05:03:26.990Z] [iam] checking project dsc-pens for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-26T05:03:26.992Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-26T05:03:26.993Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-26T05:03:27.570Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-26T05:03:27.612Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/dsc-pens:testIamPermissions  
+
+[debug] [2019-08-26T05:03:29.103Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-26T05:03:29.108Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/dsc-pens  
+ 
+[debug] [2019-08-26T05:03:29.907Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'dsc-pens'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-08-26T05:03:29.918Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/dsc-pens/versions  
+
+[debug] [2019-08-26T05:03:32.746Z] <<< HTTP RESPONSE 200
+[info] i  hosting[dsc-pens]: beginning deploy...
+[info] i  hosting[dsc-pens]: found 74 files in out
+[debug] [2019-08-26T05:03:32.837Z] [hosting] hash cache [b3V0] not populated
+[debug] [2019-08-26T05:03:34.097Z] [hosting] hash cache [b3V0] stored for 74 files
+[debug] [2019-08-26T05:03:34.098Z] [hosting][hash queue][FINAL]
+[debug] [2019-08-26T05:03:34.098Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/dsc-pens/versions/19ad8aa5bf6af841:populateFiles  
+ <request body omitted>
+[debug] [2019-08-26T05:03:37.247Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-26T05:03:37.288Z] [hosting][populate queue][FINAL]
+[debug] [2019-08-26T05:03:37.288Z] [hosting] uploads queued: 50
