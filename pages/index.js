@@ -29,7 +29,7 @@ export default () => (
                 <i className='e1a-woman_singer_tone1' /> &nbsp; Learn more
               </a>
             </Link>
-            <JoinButton />
+            <JoinButton />            
           </div>
         </div>
       </div>
