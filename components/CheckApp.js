@@ -9,7 +9,7 @@ const CheckApp = ({ className }) => (
     href='https://dscpens-event.firebaseapp.com/'
     className={cns('button', 'is-warning', className)}
   >
-  <i className='e1a-desktop' /> &nbsp; Open Event Platform App   
+  <i className='e1a-desktop' /> &nbsp; Go to DSC PENS - Event Platform  
   </Link>
 )
 
